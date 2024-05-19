@@ -227,8 +227,9 @@ Functions in <Function-APP-Name>:
         Invoke url: https://<Function-APP-Name>.azurewebsites.net/api/myhttptrigger
 ```
 
-Try open this URL in the browser, we will get **401 Unauthorized**, because only
-the resource that is attached to the managed identity can access this endpoint.
+If we open this URL in the browser, we will get **401 Unauthorized**, because
+only the resource that is attached to the managed identity can access this
+endpoint.
 
 ## Use Logic App with Managed Identity to test the endpoint
 
