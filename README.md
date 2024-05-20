@@ -146,7 +146,8 @@ dotnet add Azure.Security.KeyVault.Secrets
 ```
 
 Sign into Azure with Azure CLI. We need to sign in Azure for getting access to
-the Key Vault.
+the Key Vault. Note that the account should have enough permission to access the
+Key Vault.
 
 ```
 az login
@@ -179,6 +180,13 @@ Function app needs **Key Vault Secrets User** Role to access Key Vault.
 After the Function App is created, it is **publicly accessible**. Since our
 Function returns access token which we don't want to expose, we should add
 authentication to the Function. We use **Managed Identity** for this example.
+There are two types of Managed Identity, system-assigned and user-assigned
+identity. Follow the tutorials below if you don't know how to create a managed
+identity.
+
+- [Enable system-assigned identity](https://learn.microsoft.com/en-us/azure/logic-apps/authenticate-with-managed-identity?tabs=consumption#enable-system-assigned-identity-in-the-azure-portal)
+
+- [Add user-assigned identity](https://learn.microsoft.com/en-us/azure/logic-apps/authenticate-with-managed-identity?tabs=consumption#add-user-assigned-identity-to-logic-app-in-the-azure-portal)
 
 #### Get Object (principal) ID of Managed Identity
 
@@ -250,6 +258,6 @@ endpoint.
 
 - Run the workflow
 
-Access token returned in the output body.
+Access token was successfully returned in the output body.
 
 ![alt text](./img/call_function.png)
